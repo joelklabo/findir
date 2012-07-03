@@ -15,6 +15,7 @@
   "bugs": {
     "url": "https://github.com/joelklabo/findir/issues"
   },
+  "main": './main.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/joelklabo/findir.git"
