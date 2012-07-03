@@ -1,0 +1,31 @@
+{
+  "name": "findir",
+  "description": "findir searches for a directory with a given name",
+  "tags": [
+    "directory",
+    "search",
+    "dir",
+    "fs",
+    "files",
+    "utility",
+    "fun!"
+  ],
+  "version": "0.0.1",
+  "homepage": "https://github.com/joelklabo/findir",
+  "bugs": {
+    "url": "https://github.com/joelklabo/findir/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joelklabo/findir.git"
+  },
+  "author": "Joel Klabo <joelklabo@gmail.com>",
+  "engines": [
+    "node >=0.6.15"
+  ],
+  "dependencies": {
+    "walk": "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
