@@ -7,7 +7,7 @@ var fs  = require('fs')
 var isIgnored = function (root, ignoreDirs) {
   if (!ignoreDirs.length) { return false }
   ignoreDirs.forEach(function (dir) {
-    if (root.indexOf(dir)) {
+    if (root.indexOf(dir) > -1) {
       return true
     }
   })
@@ -22,7 +22,7 @@ var find = function (name, opts, cb) {
   walker = walk.walk(cwd);
   walker.on('directories', function (root, dirs, next) {
     dirs.forEach(function (dir) {
-      if (!isIgnored(root, ignoreDirs) && dir.name == name) {
+      if (!!isIgnored(root, ignoreDirs) && dir.name == name) {
         walker.removeAllListeners()
         cb(path.join(root, name))
       }
