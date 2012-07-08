@@ -11,6 +11,7 @@ var find = function (name, opts, cb) {
 
   var ignoreDirs = opts.ignore
     , startDir = opts.dir
+    , found
     ;
 
   walker = walk.walk(startDir);
@@ -20,12 +21,20 @@ var find = function (name, opts, cb) {
         if (root.indexOf(ignoreDir) > -1) {
           next()
         } else if (dir.name == name) {
-          cb(path.join(root, name))
-          walker.removeAllListeners()
+          walker.emit('found', path.join(root, name))
         }
       })
     })
     next()
+  })
+
+  walker.once('found', function (dir) {
+    found = dir
+  })
+
+  walker.once('end', function () {
+    if (!found) { console.log('Unable to find', name) }
+    cb(found)
   })
 }
 
